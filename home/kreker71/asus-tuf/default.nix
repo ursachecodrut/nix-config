@@ -6,6 +6,7 @@
 {
   imports = [
     "${hmModules}/common"
+    "${hmModules}/desktop/hyprland"
   ];
 
   programs.home-manager.enable = true;

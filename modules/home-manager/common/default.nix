@@ -12,6 +12,7 @@
     ../programs/nvim
     ../programs/firefox
     ../programs/btop
+    ../programs/foot
     # ../programs/signal
   ];
 

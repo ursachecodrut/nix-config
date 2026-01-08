@@ -8,7 +8,7 @@
   imports = [
     ./hardware.nix
     "${nixosModules}/common"
-    "${nixosModules}/desktop/gnome"
+    "${nixosModules}/desktop/hyprland"
   ];
 
   networking.hostName = hostname;
