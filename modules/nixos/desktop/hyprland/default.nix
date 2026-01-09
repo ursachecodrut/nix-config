@@ -45,7 +45,6 @@
     hyprpicker
     # libnotify
     networkmanagerapplet
-    # pamixer
     pavucontrol
     slurp
     wf-recorder

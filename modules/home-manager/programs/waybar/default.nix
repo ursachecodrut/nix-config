@@ -160,10 +160,6 @@
             ];
           };
           on-click = "pavucontrol";
-          on-scroll-up = "pamixer -i 5";
-          on-scroll-down = "pamixer -d 5";
-          scroll-step = 5;
-          on-click-right = "pamixer -t";
           smooth-scrolling-threshold = 1;
           ignored-sinks = [ "Easy Effects Sink" ];
         };
@@ -173,9 +169,6 @@
           format-source = " {volume}%";
           format-source-muted = "";
           on-click = "pavucontrol";
-          on-click-right = "pamixer --default-source -t";
-          on-scroll-up = "pamixer --default-source -i 5";
-          on-scroll-down = "pamixer --default-source -d 5";
         };
 
         temperature = {
