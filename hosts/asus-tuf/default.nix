@@ -9,6 +9,7 @@
     ./hardware.nix
     ./nvidia.nix
     "${nixosModules}/common"
+    "${nixosModules}/services/tlp"
     "${nixosModules}/desktop/hyprland"
   ];
 
