@@ -50,6 +50,7 @@
     pavucontrol
     slurp
     wf-recorder
+    wl-clipboard
     wlr-randr
     wlsunset
   ];

@@ -54,6 +54,7 @@
   };
 
   catppuccin.bat.enable = true;
+  catppuccin.eza.enable = true;
 
   programs.zoxide = {
     enable = true;
