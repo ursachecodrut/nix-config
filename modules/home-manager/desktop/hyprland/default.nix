@@ -7,7 +7,7 @@
   imports = [
     "${hmModules}/misc/gtk"
     "${hmModules}/programs/waybar"
-    # "${hmModules}/programs/walker"
+    "${hmModules}/programs/walker"
   ];
 
   home.pointerCursor = {
