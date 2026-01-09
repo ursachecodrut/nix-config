@@ -8,6 +8,7 @@
     "${hmModules}/misc/wallpaper"
     "${hmModules}/misc/gtk"
     "${hmModules}/programs/waybar"
+    "${hmModules}/programs/hyprlock"
     "${hmModules}/programs/walker"
   ];
 
@@ -26,9 +27,7 @@
 
     "hypr/hyprpaper.conf".text = ''
       splash = false
-
       preload = ${config.wallpaper}
-
       wallpaper = ,${config.wallpaper}
     '';
 

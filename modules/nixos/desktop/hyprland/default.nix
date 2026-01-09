@@ -41,7 +41,6 @@
     grim
     grimblast
     hypridle
-    hyprlock
     hyprpaper
     hyprpicker
     # libnotify
