@@ -5,6 +5,7 @@
 }:
 {
   imports = [
+    "${hmModules}/misc/wallpaper"
     "${hmModules}/misc/gtk"
     "${hmModules}/programs/waybar"
     "${hmModules}/programs/walker"
@@ -22,6 +23,14 @@
     "hypr/hyprland.conf" = {
       source = ./hyprland.conf;
     };
+
+    "hypr/hyprpaper.conf".text = ''
+      splash = false
+
+      preload = ${config.wallpaper}
+
+      wallpaper = ,${config.wallpaper}
+    '';
 
     # "hypr/hypridle.conf".text = ''
     #   general {
