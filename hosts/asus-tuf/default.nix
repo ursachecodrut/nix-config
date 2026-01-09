@@ -7,6 +7,7 @@
 {
   imports = [
     ./hardware.nix
+    ./nvidia.nix
     "${nixosModules}/common"
     "${nixosModules}/desktop/hyprland"
   ];
