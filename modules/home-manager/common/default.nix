@@ -13,7 +13,7 @@
     ../programs/firefox
     ../programs/btop
     ../programs/foot
-    # ../programs/signal
+    ../programs/signal
   ];
 
   nixpkgs = {

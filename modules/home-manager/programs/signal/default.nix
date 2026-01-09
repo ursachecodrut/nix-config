@@ -1,3 +1,7 @@
+{ pkgs, ... }:
+
 {
-  programs.signal-desktop.enable = true;
+  home.packages = with pkgs; [
+    signal-desktop
+  ];
 }
