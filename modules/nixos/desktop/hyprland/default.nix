@@ -52,7 +52,6 @@
     wf-recorder              # screen recording utility
     wl-clipboard             # clipboard utilities for Wayland
     wlr-randr                # display configuration utility for Wayland
-    wlsunset                 # automatic color temperature adjustment for Wayland
   ];
 
   # speed up builds by using the Walker binary cache
