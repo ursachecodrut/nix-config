@@ -29,28 +29,30 @@
   };
 
   environment.systemPackages = with pkgs; [
-    file-roller
-    gnome-calculator
-    gnome-text-editor
-    loupe # image viewer
-    seahorse # gnome keyring manager
-    nautilus # file manager
-    totem # video player
+    file-roller              # archive manager
+    gnome-calculator         # calculator
+    gnome-text-editor        # text editor
+    loupe                    # image viewer
+    seahorse                 # GNOME keyring manager
+    nautilus                 # file manager
+    totem                    # video player
 
-    brightnessctl
-    grim
-    grimblast
-    hypridle
-    hyprpaper
-    hyprpicker
-    # libnotify
-    networkmanagerapplet
-    pavucontrol
-    slurp
-    wf-recorder
-    wl-clipboard
-    wlr-randr
-    wlsunset
+    libnotify                # send desktop notifications
+    brightnessctl            # adjust screen brightness
+    networkmanagerapplet     # network manager applet
+    pavucontrol              # volume control
+
+    grim                     # screenshot utility
+    slurp                    # selection utility
+
+    hypridle                 # idle management for Hyprland
+    hyprpaper                # wallpaper manager for Hyprland
+    hyprpicker               # color picker for Hyprland
+
+    wf-recorder              # screen recording utility
+    wl-clipboard             # clipboard utilities for Wayland
+    wlr-randr                # display configuration utility for Wayland
+    wlsunset                 # automatic color temperature adjustment for Wayland
   ];
 
   # speed up builds by using the Walker binary cache

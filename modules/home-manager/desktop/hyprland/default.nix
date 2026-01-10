@@ -7,6 +7,7 @@
   imports = [
     "${hmModules}/services/hyprpaper"
     "${hmModules}/services/hypridle"
+    "${hmModules}/services/swaync"
     "${hmModules}/misc/wallpaper"
     "${hmModules}/misc/gtk"
     "${hmModules}/programs/waybar"

@@ -14,6 +14,7 @@
     ../programs/btop
     ../programs/foot
     ../programs/signal
+    ../scripts
   ];
 
   nixpkgs = {
@@ -37,5 +38,6 @@
     dust
     unzip
     ripgrep
+    tesseract
   ];
 }

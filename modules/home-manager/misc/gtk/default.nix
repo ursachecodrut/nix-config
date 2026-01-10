@@ -4,7 +4,6 @@
   ...
 }:
 {
-  # GTK theme configuration
   gtk = {
     enable = true;
     colorScheme = "dark";
@@ -35,8 +34,6 @@
         "file://${config.home.homeDirectory}/Downloads"
         "file://${config.home.homeDirectory}/Pictures"
         "file://${config.home.homeDirectory}/Videos"
-        "file://${config.home.homeDirectory}/Downloads/temp"
-        "file://${config.home.homeDirectory}/Documents/repositories"
       ];
     };
   };
