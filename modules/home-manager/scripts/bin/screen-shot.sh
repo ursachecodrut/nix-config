@@ -4,20 +4,6 @@ DIR="$HOME/Pictures/Screenshots"
 NAME="Screenshot-$(date +%Y-%m-%d-%H%M%S_grim.png)"
 FILE_PATH="$DIR/$NAME"
 
-check_dep() {
-    local cmd=$1
-    local pkg=$2
-    if ! command -v "$cmd" &> /dev/null; then
-        notify-send -u critical "Screenshot Error" "Missing dependency: '$pkg'. Please install it."
-        echo "Error: $pkg is not installed."
-        exit 1
-    fi
-}
-
-check_dep "grim" "grim"
-check_dep "slurp" "slurp"
-check_dep "notify-send" "libnotify"
-
 if [ ! -d "$DIR" ]; then
     mkdir -p "$DIR"
 fi
@@ -34,15 +20,10 @@ case $1 in
         ;;
         
     "copy")
-        check_dep "wl-copy" "wl-clipboard"
-
         grim -g "$GEOMETRY" - | wl-copy
         notify-send "Screenshot" "Copied to Clipboard" 
         ;;
     "ocr")
-        check_dep "wl-copy" "wl-clipboard"
-        check_dep "tesseract" "tesseract-ocr"
-
         grim -g "$GEOMETRY" - | tesseract stdin stdout -l "eng+ron" | tr -d '\f' | wl-copy
         notify-send "OCR" "Text extracted to clipboard"
         ;;
