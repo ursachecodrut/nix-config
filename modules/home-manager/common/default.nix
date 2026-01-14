@@ -10,10 +10,7 @@
     ../programs/starship
     ../programs/tmux
     ../programs/nvim
-    ../programs/firefox
     ../programs/btop
-    ../programs/foot
-    ../programs/signal
     ../scripts
   ];
 
@@ -25,9 +22,8 @@
 
   home = {
     username = "${userConfig.name}";
-    # homeDirectory =
-    #   if pkgs.stdenv.isDarwin then "/Users/${userConfig.name}" else "/home/${userConfig.name}";
-    homeDirectory = "/home/${userConfig.name}";
+    homeDirectory =
+      if pkgs.stdenv.isDarwin then "/Users/${userConfig.name}" else "/home/${userConfig.name}";
   };
 
   home.packages = with pkgs; [
@@ -38,6 +34,11 @@
     dust
     unzip
     ripgrep
-    tesseract
-  ];
+    ] ++
+    lib.optionals stdenv.isDarwin [
+    ]
+    ++ lib.optionals (!stdenv.isDarwin) [
+      tesseract
+      unzip
+    ];
 }

@@ -22,6 +22,11 @@
       url = "github:abenz1267/walker";
       inputs.elephant.follows = "elephant";
     };
+
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -30,6 +35,7 @@
       nixpkgs,
       home-manager,
       catppuccin,
+      darwin,
       ...
     }@inputs:
     let
@@ -41,6 +47,12 @@
           fullName = "Codrut Ursache";
           email = "ursache.codrut71@gmail.com";
           # avatar = ./files/avatar/face;
+        };
+
+        "codrut.ursache" = {
+          name = "codrut.ursache";
+          fullName = "Codrut Stefan Ursache";
+          email = "ursache.codrut71@gmail.com";
         };
       };
 
@@ -57,6 +69,19 @@
             catppuccin.nixosModules.catppuccin
             ./hosts/${hostname}
           ];
+        };
+
+      # Function for nix-darwin system configuration
+      mkDarwinConfiguration =
+        hostname: username:
+        darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          specialArgs = {
+            inherit inputs outputs hostname;
+            userConfig = users.${username};
+            darwinModules = "${self}/modules/darwin";
+          };
+          modules = [ ./hosts/${hostname} ];
         };
 
       # Function for Home Manager configuration
@@ -80,9 +105,13 @@
         asus-tuf = mkNixosConfiguration "asus-tuf" "kreker71";
       };
 
-      homeConfigurations = {
-        "kreker71@asus-tuf" = mkHomeConfiguration "x86_64-linux" "kreker71" "asus-tuf";
+      darwinConfigurations = {
+        "Codrut-Stefans-MacBook-Pro" = mkDarwinConfiguration "Codrut-Stefans-MacBook-Pro" "codrut.ursache";
       };
 
+      homeConfigurations = {
+        "kreker71@asus-tuf" = mkHomeConfiguration "x86_64-linux" "kreker71" "asus-tuf";
+        "codrut.ursache@Codrut-Stefans-MacBook-Pro" = mkHomeConfiguration "aarch64-darwin" "codrut.ursache" "Codrut-Stefans-MacBook-Pro";
+      };
     };
 }
