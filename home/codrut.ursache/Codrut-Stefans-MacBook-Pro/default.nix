@@ -3,6 +3,7 @@
   imports = [
     "${hmModules}/common"
     "${hmModules}/programs/wezterm"
+    "${hmModules}/programs/aerospace"
     ./zsh.nix
   ];
 

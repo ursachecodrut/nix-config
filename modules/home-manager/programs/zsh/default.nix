@@ -21,6 +21,8 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
       TERM = "xterm-256color";
+
+      ERL_AFLAGS = "-kernel shell_history enabled";
     };
 
     shellAliases = {
