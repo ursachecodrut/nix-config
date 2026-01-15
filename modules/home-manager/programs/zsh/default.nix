@@ -7,6 +7,8 @@
     fzf
     zoxide
     starship
+    mise
+    gettext
   ];
 
   programs.zsh = {

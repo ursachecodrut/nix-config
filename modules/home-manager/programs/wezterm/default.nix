@@ -2,6 +2,7 @@
 {
   programs.wezterm = {
     enable = true;
+    enableZshIntegration = false;
     
     extraConfig = ''
     local wezterm = require("wezterm")

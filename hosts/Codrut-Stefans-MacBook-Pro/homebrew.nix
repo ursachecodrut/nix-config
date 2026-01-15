@@ -14,6 +14,7 @@
     # brews = [];
 
     casks = [
+      "tailscale"
       "raycast" 
       "firefox"
       "slack"
@@ -23,6 +24,7 @@
       "bruno"
       "appcleaner"
       "bitwarden"
+      "aldente"
     ];
   };
 }

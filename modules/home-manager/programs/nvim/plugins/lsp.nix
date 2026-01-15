@@ -33,6 +33,17 @@
             };
           };
         };
+
+        elixirls = {
+          enable = true;
+          # Optional: Point to a specific package if you need a different version
+          # package = pkgs.elixir-ls; 
+          
+          settings = {
+            dialyzerEnabled = true;
+            fetchDeps = false; 
+          };
+        };
       };
 
       keymaps = {
