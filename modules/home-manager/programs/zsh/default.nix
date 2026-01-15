@@ -7,8 +7,6 @@
     fzf
     zoxide
     starship
-    mise
-    gettext
   ];
 
   programs.zsh = {
@@ -57,7 +55,6 @@
     };
   };
 
-  catppuccin.bat.enable = true;
   catppuccin.eza.enable = true;
 
   programs.zoxide = {

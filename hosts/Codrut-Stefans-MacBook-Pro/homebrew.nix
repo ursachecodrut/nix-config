@@ -10,10 +10,13 @@
 
     taps = [
       "nikitabobko/tap"
+      "withgraphite/tap"
     ];
 
     # `brew install`
-    # brews = [];
+    brews = [
+      "withgraphite/tap/graphite"
+    ];
 
     casks = [
       "tailscale-app"

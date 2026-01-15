@@ -25,5 +25,5 @@
     };
   };
 
-  catppuccin.delta.enable = true;
+  # catppuccin.delta.enable = true;
 }

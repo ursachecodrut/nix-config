@@ -62,7 +62,7 @@
         AppleInterfaceStyle = "Dark";
         ApplePressAndHoldEnabled = false;             
         AppleShowAllExtensions = true;
-        InitialKeyRepeat = 12;
+        InitialKeyRepeat = 10;
         KeyRepeat = 1;
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticDashSubstitutionEnabled = false;
@@ -93,8 +93,8 @@
         persistent-apps = [
             "/Users/${userConfig.name}/Applications/Home Manager Apps/WezTerm.app"
             "/Applications/Firefox.app"
-            "/Applications/Microsoft Outlook.app"
             "/Applications/Slack.app"
+            "/Applications/Microsoft Outlook.app"
             "/Applications/Discord.app"
             "/Applications/zoom.us.app"
             "/Applications/Visual Studio Code.app"

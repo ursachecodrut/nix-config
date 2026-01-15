@@ -9,21 +9,19 @@
       "$schema" = "https://starship.rs/config-schema.json";
 
       format = lib.concatStrings [
-        "$kubernetes"
         "$conda"
         "$directory"
         "$git_branch"
-        "$line_break"
+        # "$line_break"
         "$character"
       ];
 
       right_format = lib.concatStrings [
-        "\${custom.workspace}" # Escaped for Nix string interpolation
         "$cmd_duration"
         "$time"
       ];
 
-      add_newline = true;
+      add_newline = false;
 
       directory = {
         style = "green";
