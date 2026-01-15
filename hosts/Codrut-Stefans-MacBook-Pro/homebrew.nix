@@ -8,13 +8,15 @@
       cleanup = "zap";   # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
     };
 
-    # taps = [];
+    taps = [
+      "nikitabobko/tap"
+    ];
 
     # `brew install`
     # brews = [];
 
     casks = [
-      "tailscale"
+      "tailscale-app"
       "raycast" 
       "firefox"
       "slack"
@@ -25,6 +27,7 @@
       "appcleaner"
       "bitwarden"
       "aldente"
+      "nikitabobko/tap/aerospace"
     ];
   };
 }
