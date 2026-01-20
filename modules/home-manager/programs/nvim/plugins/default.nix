@@ -10,6 +10,7 @@
     ./fzf-lua.nix
     # ./oil.nix
     ./nvim-tree.nix
+    ./gitsigns.nix
   ];
 
   programs.nixvim = {

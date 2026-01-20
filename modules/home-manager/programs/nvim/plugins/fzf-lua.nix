@@ -25,6 +25,18 @@
             desc = "Fzf Live Grep";
           };
         };
+        "<leader>fw" = {
+          action = "grep_cword";
+          options = {
+            desc = "Fzf Grep Word Under Cursor";
+          };
+        };
+        "<leader>fW" = {
+          action = "grep_cWORD";
+          options = {
+            desc = "Fzf Grep Word Under Cursor";
+          };
+        };
         "<leader>fb" = {
           action = "buffers";
           options = {
