@@ -62,7 +62,7 @@
         AppleInterfaceStyle = "Dark";
         ApplePressAndHoldEnabled = false;             
         AppleShowAllExtensions = true;
-        InitialKeyRepeat = 10;
+        InitialKeyRepeat = 12;
         KeyRepeat = 1;
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticDashSubstitutionEnabled = false;

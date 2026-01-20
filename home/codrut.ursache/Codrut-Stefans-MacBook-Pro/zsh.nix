@@ -5,8 +5,10 @@
     mise
     gettext         
     usage            # for mise autocomplete
+    kubernetes-helm
     kubectl
     kubectx
+    claude-code
   ];
 
   programs.zsh = {

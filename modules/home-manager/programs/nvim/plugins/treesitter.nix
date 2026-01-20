@@ -13,6 +13,7 @@
         indent.enable = true;
       };
       grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        gitignore
         json
         markdown
         yaml
@@ -20,12 +21,13 @@
         bash
         vim
         dockerfile
-        gitignore
+        jsdoc
         typescript
         javascript
         python
         elixir
         erlang
+        graphql
       ];
     };
   };

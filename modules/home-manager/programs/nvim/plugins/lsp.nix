@@ -44,6 +44,19 @@
             fetchDeps = false; 
           };
         };
+
+        ts_ls = {
+          enable = true;
+          filetypes = [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
+        };
+
+        biome = {
+          enable = true;
+        };
+
+        marksman = {
+          enable = true;
+        };
       };
 
       keymaps = {
