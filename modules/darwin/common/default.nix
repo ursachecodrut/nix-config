@@ -98,7 +98,9 @@
             "/Applications/Discord.app"
             "/Applications/zoom.us.app"
             "/Applications/Visual Studio Code.app"
-            "/Applications/Docker.app"
+            "/Applications/DataGrip.app/"
+            "/Applications/Bruno.app/"
+            "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/"
             "/Applications/Bitwarden.app"
             "/System/Applications/System Settings.app"
         ];

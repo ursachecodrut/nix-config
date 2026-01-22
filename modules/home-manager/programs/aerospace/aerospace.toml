@@ -42,6 +42,39 @@ key-mapping.preset = 'qwerty'
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = 'main'
+7 = 'main'
+8 = 'main'
+9 = 'main'
+A = 'built-in'
+B = 'built-in'
+C = 'built-in'
+D = 'built-in'
+E = 'built-in'
+F = 'built-in'
+G = 'built-in'
+I = 'built-in'
+M = 'built-in'
+N = 'built-in'
+O = 'built-in'
+P = 'built-in'
+Q = 'built-in'
+R = 'built-in'
+S = 'built-in'
+T = 'built-in'
+U = 'built-in'
+V = 'built-in'
+W = 'built-in'
+X = 'built-in'
+Y = 'built-in'
+Z = 'built-in'
+
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8

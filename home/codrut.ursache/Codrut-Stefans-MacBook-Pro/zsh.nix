@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userConfig, ... }:
 
 {
   home.packages = with pkgs; [
@@ -10,6 +10,28 @@
     kubectx
     claude-code
   ];
+
+  programs.git = {
+    signing = {
+      key = "~/.ssh/id_ed25519.pub";
+      signByDefault = true;
+    };
+
+    settings = {
+      gpg = {
+        format = "ssh";
+        ssh = {
+          allowedSignersFile = "~/.ssh/allowed_signers";
+        };
+      };
+      commit = {
+        gpgsign = true;
+      };
+      tag = {
+        gpgsign = true;
+      };
+    };
+  };
 
   programs.zsh = {
     enable = true;

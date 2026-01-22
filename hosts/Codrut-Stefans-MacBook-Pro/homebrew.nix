@@ -20,11 +20,13 @@
 
     casks = [
       "tailscale-app"
+      "iterm2"
       "raycast" 
       "firefox"
       "slack"
       "zoom"
       "discord"
+      "linear-linear"
       "visual-studio-code"
       "bruno"
       "appcleaner"

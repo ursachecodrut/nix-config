@@ -28,9 +28,7 @@
       ls = "eza";
       ll = "eza --long --icons --time-style='long-iso'";
       la = "ll -a";
-      tree = "eza --tree --level=2";
-      tree3 = "eza --tree --level=3";
-      tree4 = "eza --tree --level=4";
+      tree = "eza --tree";
       
       # Neovim
       v = "nvim";
