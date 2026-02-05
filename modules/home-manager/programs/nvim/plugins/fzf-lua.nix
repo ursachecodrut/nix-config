@@ -4,11 +4,31 @@
       enable = true;
 
       settings = {
+        winopts = {
+          height = 0.85;
+          width = 0.80;
+          preview = {
+            layout = "vertical"; 
+            vertical = "down:50%";
+          };
+        };
         fzf_opts = {
           "--ansi" = "";
           "--info" = "inline";
           "--height" = "100%";
           "--layout" = "reverse";
+        };
+        actions = {
+          diagnostics = {
+            "ctrl-y" = ''
+              function(selected)
+                -- selected[1] usually contains the text line in fzf-lua
+                local msg = selected[1]
+                vim.fn.setreg('+', msg)
+                print("Copied to clipboard!")
+              end
+            '';
+          };
         };
       };
 
@@ -61,6 +81,23 @@
             desc = "Fzf LSP References";
           };
         };
+        "<leader>gs" = {
+          action = "git_status";
+          options.desc = "Fzf Git Status (Stage files with Tab)";
+        };
+        "<leader>gc" = {
+          action = "git_commits";
+          options.desc = "Fzf Git Commits (Checkout on Enter)";
+        };
+        "<leader>gb" = {
+          action = "git_branches";
+          options.desc = "Fzf Git Branches";
+        };
+        "<leader>gt" = {
+          action = "git_stash";
+          options.desc = "Fzf Git Stash";
+        };
+
       };
     };
   };

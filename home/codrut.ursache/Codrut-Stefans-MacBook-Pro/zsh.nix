@@ -5,6 +5,7 @@
     mise
     gettext         
     usage            # for mise autocomplete
+    clickhouse
     kubernetes-helm
     kubectl
     kubectx

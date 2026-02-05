@@ -30,6 +30,7 @@
       "visual-studio-code"
       "bruno"
       "appcleaner"
+      "obsidian"
       "bitwarden"
       "aldente"
       "nikitabobko/tap/aerospace"

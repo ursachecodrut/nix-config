@@ -25,5 +25,15 @@
     };
   };
 
+  programs.lazygit = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  catppuccin.lazygit = {
+    enable = true;
+    flavor = "mocha";
+  };
+
   # catppuccin.delta.enable = true;
 }

@@ -29,7 +29,7 @@
               expr = "import <nixpkgs> {}";
             };
             formatting = {
-              command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+              command = [ "${lib.getExe pkgs.nixfmt}" ];
             };
           };
         };
@@ -37,17 +37,22 @@
         elixirls = {
           enable = true;
           # Optional: Point to a specific package if you need a different version
-          # package = pkgs.elixir-ls; 
-          
+          # package = pkgs.elixir-ls;
+
           settings = {
             dialyzerEnabled = true;
-            fetchDeps = false; 
+            fetchDeps = false;
           };
         };
 
         ts_ls = {
           enable = true;
-          filetypes = [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
+          filetypes = [
+            "javascript"
+            "javascriptreact"
+            "typescript"
+            "typescriptreact"
+          ];
         };
 
         biome = {
@@ -63,13 +68,32 @@
         silent = true;
         lspBuf = {
           "gd" = "definition";
-          "gD" = "declaration";
-          "K" = "hover";
+          "gD" = "references";
+          "gt" = "type_definition";
           "gi" = "implementation";
-          "gr" = "references";
+          "K" = "hover";
           "<leader>rn" = "rename";
           "<leader>ca" = "code_action";
         };
+        diagnostic = {
+          "<leader>k" = "open_float";
+          "]d" = "goto_next";
+          "[d" = "goto_prev";
+        };
+        extra = [
+          {
+            key = "<leader>lx";
+            action = "<CMD>LspStop<Enter>";
+          }
+          {
+            key = "<leader>ls";
+            action = "<CMD>LspStart<Enter>";
+          }
+          {
+            key = "<leader>lr";
+            action = "<CMD>LspRestart<Enter>";
+          }
+        ];
       };
     };
   };

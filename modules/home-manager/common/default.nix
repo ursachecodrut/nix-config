@@ -11,6 +11,7 @@
     ../programs/tmux
     ../programs/nvim
     ../programs/btop
+    ../programs/direnv
     ../scripts
   ];
 

@@ -1,8 +1,9 @@
-{...}:
+{ ... }:
 
 {
   programs.nixvim = {
     opts = {
+      autoread = true;
       completeopt = "menu,menuone,noselect";
       swapfile = false;
       title = true;
@@ -27,8 +28,20 @@
       splitright = true;
       splitbelow = true;
       virtualedit = "onemore";
-      iskeyword = [ "@" "-" "_" ]; # default plus "-"
+      iskeyword = [
+        "@"
+        "-"
+        "_"
+      ]; # default plus "-"
       backupcopy = "yes";
     };
+
+    autoCmd = [
+      {
+        event = "CursorHold";
+        pattern = "*";
+        command = "checktime";
+      }
+    ];
   };
 }

@@ -10,6 +10,8 @@
 
       format = lib.concatStrings [
         "$conda"
+        "direnv"
+        "nix_shell"
         "$directory"
         "$git_branch"
         # "$line_break"
@@ -26,6 +28,18 @@
       directory = {
         style = "green";
         truncate_to_repo = false;
+      };
+
+      direnv = {
+        disabled = false;
+      };
+
+      "nix_shell" = {
+        disabled = false;
+        impure_msg = "[impure shell](bold red)";
+        pure_msg = "[pure shell](bold green)";
+        unknown_msg = "[unknown shell](bold yellow)";
+        format = "via [☃️ $state( \($name\))](bold blue) ";
       };
 
       kubernetes = {
