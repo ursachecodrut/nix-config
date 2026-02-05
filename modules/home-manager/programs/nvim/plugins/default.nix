@@ -11,6 +11,7 @@
     # ./oil.nix
     ./nvim-tree.nix
     ./gitsigns.nix
+    ./marks.nix
   ];
 
   programs.nixvim = {
