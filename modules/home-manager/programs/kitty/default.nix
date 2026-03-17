@@ -1,0 +1,37 @@
+{ ... }:
+{
+  programs.kitty = {
+    enable = true;
+
+    font = {
+      name = "JetBrains Mono";
+      size = 14;
+    };
+
+    settings = {
+      # Cursor trail
+      cursor_trail = 1;
+      cursor_trail_decay = "0.1 0.4";
+      cursor_trail_start_threshold = 2;
+
+      # Cursor appearance
+      cursor_shape = "block";
+      cursor_blink_interval = 0;
+
+      # Window
+      window_padding_width = 8;
+      hide_window_decorations = "titlebar-only";
+
+      # Performance
+      repaint_delay = 10;
+      input_delay = 3;
+      sync_to_monitor = "yes";
+
+      # Misc
+      enable_audio_bell = "no";
+      confirm_os_window_close = 0;
+    };
+  };
+
+  catppuccin.kitty.enable = true;
+}

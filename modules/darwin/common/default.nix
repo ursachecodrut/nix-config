@@ -91,7 +91,7 @@
         show-recents = false;
         showhidden = true;
         persistent-apps = [
-            "/Users/${userConfig.name}/Applications/Home Manager Apps/WezTerm.app"
+            "/Users/${userConfig.name}/Applications/Home Manager Apps/kitty.app"
             "/Applications/Firefox.app"
             "/Applications/Slack.app"
             "/Applications/Microsoft Outlook.app"

@@ -16,6 +16,7 @@
     # `brew install`
     brews = [
       "withgraphite/tap/graphite"
+      "wireguard-tools"
     ];
 
     casks = [

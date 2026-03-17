@@ -62,6 +62,43 @@
         marksman = {
           enable = true;
         };
+
+        tailwindcss = {
+          enable = true;
+          filetypes = [
+            "html"
+            "css"
+            "javascript"
+            "javascriptreact"
+            "typescript"
+            "typescriptreact"
+            "elixir"
+            "heex"
+          ];
+          settings = {
+            tailwindCSS = {
+              includeLanguages = {
+                elixir = "html-eex";
+                heex = "html-eex";
+              };
+              experimental = {
+                classRegex = [
+                  "class[:]\\s*\"([^\"]*)\""
+                ];
+              };
+            };
+          };
+        };
+
+        emmet_ls = {
+          enable = true;
+          filetypes = [
+            "html"
+            "css"
+            "heex"
+            "elixir"
+          ];
+        };
       };
 
       keymaps = {

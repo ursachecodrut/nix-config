@@ -127,6 +127,31 @@
           desc = "LSP formatting";
         };
       }
+      # HEEx/Phoenix keymaps - wrap selection
+      {
+        mode = "v";
+        key = "<leader>ee";
+        action = "c{<C-r>\"}<Esc>";
+        options = {
+          desc = "Wrap in {expression}";
+        };
+      }
+      {
+        mode = "v";
+        key = "<leader>ea";
+        action = "c{@<C-r>\"}<Esc>";
+        options = {
+          desc = "Wrap in {@attr}";
+        };
+      }
+      {
+        mode = "v";
+        key = "<leader>ex";
+        action = "c<%= <C-r>\" %><Esc>";
+        options = {
+          desc = "Wrap in <%= %>";
+        };
+      }
     ];
   };
 }

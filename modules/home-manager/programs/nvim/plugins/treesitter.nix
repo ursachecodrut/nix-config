@@ -27,7 +27,10 @@
         python
         elixir
         erlang
+        heex
         graphql
+        html
+        css
       ];
     };
   };

@@ -35,6 +35,7 @@
     dust
     unzip
     ripgrep
+    rclone
     ] ++
     lib.optionals stdenv.isDarwin [
     ]
