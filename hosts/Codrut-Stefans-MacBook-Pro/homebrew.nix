@@ -17,6 +17,10 @@
     brews = [
       "withgraphite/tap/graphite"
       "wireguard-tools"
+      "python@3.12"
+      "colima"
+      "docker"
+      "docker-compose"
     ];
 
     casks = [

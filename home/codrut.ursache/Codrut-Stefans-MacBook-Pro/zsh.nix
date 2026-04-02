@@ -3,8 +3,8 @@
 {
   home.packages = with pkgs; [
     mise
-    gettext         
-    usage            # for mise autocomplete
+    gettext
+    usage # for mise autocomplete
     clickhouse
     kubernetes-helm
     kubectl
