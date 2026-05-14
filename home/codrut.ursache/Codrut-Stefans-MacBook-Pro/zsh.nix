@@ -36,6 +36,9 @@
 
   programs.zsh = {
     enable = true;
+    shellAliases = {
+      claude-work = "CLAUDE_CONFIG_DIR=\"$HOME/.claude-work\" claude";
+    };
     initContent = ''
       eval "$(gt completion)"
     '';

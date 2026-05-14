@@ -31,6 +31,7 @@
         graphql
         html
         css
+        beancount
       ];
     };
   };

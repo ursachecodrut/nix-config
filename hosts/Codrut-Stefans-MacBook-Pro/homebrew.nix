@@ -21,6 +21,8 @@
       "colima"
       "docker"
       "docker-compose"
+      "gum"
+      "beancount"
     ];
 
     casks = [

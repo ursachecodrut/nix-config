@@ -25,6 +25,7 @@
             php = "html";
             rescript = "typescriptreact";
             rust = "rust";
+            tsx = "typescriptreact";
             twig = "html";
             typescript = "typescriptreact";
             "typescript.tsx" = "typescriptreact";

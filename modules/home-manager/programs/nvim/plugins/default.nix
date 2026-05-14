@@ -14,6 +14,7 @@
     ./marks.nix
     ./ts-autotag.nix
     ./snippets.nix
+    ./trouble.nix
   ];
 
   programs.nixvim = {
