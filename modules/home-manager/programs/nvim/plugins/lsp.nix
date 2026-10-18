@@ -99,11 +99,6 @@
             "elixir"
           ];
         };
-
-        beancount_ls = {
-          enable = true;
-          filetypes = [ "beancount" ];
-        };
       };
 
       keymaps = {

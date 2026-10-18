@@ -5,6 +5,11 @@
 }:
 
 {
+  catppuccin = {
+    enable = true;
+    autoEnable = false;
+  };
+
   nixpkgs = {
     config = {
       allowUnfree = true;

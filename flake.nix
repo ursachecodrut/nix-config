@@ -14,7 +14,6 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     elephant.url = "github:abenz1267/elephant";
@@ -103,6 +102,7 @@
     {
       nixosConfigurations = {
         asus-tuf = mkNixosConfiguration "asus-tuf" "kreker71";
+        b450-desktop = mkNixosConfiguration "b450-desktop" "kreker71";
       };
 
       darwinConfigurations = {
@@ -111,6 +111,7 @@
 
       homeConfigurations = {
         "kreker71@asus-tuf" = mkHomeConfiguration "x86_64-linux" "kreker71" "asus-tuf";
+        "kreker71@b450-desktop" = mkHomeConfiguration "x86_64-linux" "kreker71" "b450-desktop";
         "codrut.ursache@Codrut-Stefans-MacBook-Pro" = mkHomeConfiguration "aarch64-darwin" "codrut.ursache" "Codrut-Stefans-MacBook-Pro";
       };
     };

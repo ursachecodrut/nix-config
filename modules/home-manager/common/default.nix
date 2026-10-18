@@ -15,6 +15,11 @@
     ../scripts
   ];
 
+  catppuccin = {
+    enable = true;
+    autoEnable = false;
+  };
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -24,7 +29,7 @@
   home = {
     username = "${userConfig.name}";
     homeDirectory =
-      if pkgs.stdenv.isDarwin then "/Users/${userConfig.name}" else "/home/${userConfig.name}";
+      if pkgs.stdenv.hostPlatform.isDarwin then "/Users/${userConfig.name}" else "/home/${userConfig.name}";
   };
 
   home.packages = with pkgs; [
@@ -37,9 +42,9 @@
     ripgrep
     rclone
     ] ++
-    lib.optionals stdenv.isDarwin [
+    lib.optionals stdenv.hostPlatform.isDarwin [
     ]
-    ++ lib.optionals (!stdenv.isDarwin) [
+    ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [
       tesseract
       unzip
     ];
