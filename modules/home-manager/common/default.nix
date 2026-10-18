@@ -42,6 +42,7 @@
     unzip
     ripgrep
     rclone
+    fastfetch
     ] ++
     lib.optionals stdenv.hostPlatform.isDarwin [
     ]

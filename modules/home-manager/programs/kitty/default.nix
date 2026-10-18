@@ -1,11 +1,14 @@
-{ ... }:
+{ pkgs, ... }:
+let
+  theme = name: "include ${pkgs.kitty-themes}/share/kitty-themes/themes/${name}.conf";
+in
 {
   programs.kitty = {
     enable = true;
 
     font = {
       name = "JetBrains Mono";
-      size = 14;
+      size = 10;
     };
 
     settings = {
@@ -32,5 +35,11 @@
     };
   };
 
-  catppuccin.kitty.enable = true;
+  # Kitty switches between these automatically following the system
+  # light/dark preference (freedesktop color-scheme portal).
+  xdg.configFile = {
+    "kitty/dark-theme.auto.conf".text = theme "Catppuccin-Macchiato";
+    "kitty/light-theme.auto.conf".text = theme "Catppuccin-Latte";
+    "kitty/no-preference-theme.auto.conf".text = theme "Catppuccin-Macchiato";
+  };
 }
