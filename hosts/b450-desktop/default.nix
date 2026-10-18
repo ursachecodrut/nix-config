@@ -10,6 +10,7 @@
     ./hardware.nix
     "${nixosModules}/common"
     "${nixosModules}/desktop/plasma"
+    "${nixosModules}/programs/brave"
   ];
 
   networking.hostName = hostname;

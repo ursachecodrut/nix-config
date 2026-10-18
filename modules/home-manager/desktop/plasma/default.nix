@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   home.packages = [
@@ -8,6 +13,12 @@
       winDecStyles = [ "modern" ];
     })
   ];
+
+  # KDE caches the app list (sycoca) and does not notice new .desktop files
+  # that appear via the nix profile symlink, so rebuild it after each switch.
+  home.activation.rebuildKdeAppCache = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+    run ${pkgs.kdePackages.kservice}/bin/kbuildsycoca6 --noincremental || true
+  '';
 
   programs.plasma = {
     enable = true;

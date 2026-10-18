@@ -19,6 +19,7 @@
 
   home.packages = with pkgs; [
     kdePackages.kate
+    discord
   ];
 
   home.stateVersion = "26.05";
