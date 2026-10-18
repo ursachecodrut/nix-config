@@ -1,5 +1,74 @@
 { pkgs, ... }:
 
+let
+  parsers = [
+    "arduino"
+    "bash"
+    "beancount"
+    "c"
+    "cmake"
+    "comment"
+    "cpp"
+    "css"
+    "csv"
+    "diff"
+    "dockerfile"
+    "editorconfig"
+    "eex"
+    "elixir"
+    "elm"
+    "erlang"
+    "git_config"
+    "git_rebase"
+    "gitcommit"
+    "gitignore"
+    "gleam"
+    "go"
+    "graphql"
+    "haskell"
+    "heex"
+    "helm"
+    "hjson"
+    "html"
+    "http"
+    "java"
+    "javascript"
+    "jsdoc"
+    "json"
+    "json5"
+    "kdl"
+    "liquid"
+    "llvm"
+    "lua"
+    "make"
+    "markdown"
+    "markdown_inline"
+    "mermaid"
+    "nginx"
+    "nix"
+    "pkl"
+    "promql"
+    "python"
+    "query"
+    "regex"
+    "ruby"
+    "rust"
+    "scss"
+    "sql"
+    "ssh_config"
+    "surface"
+    "terraform"
+    "toml"
+    "tsx"
+    "typescript"
+    "typst"
+    "vim"
+    "vimdoc"
+    "xml"
+    "yaml"
+    "zig"
+  ];
+in
 {
   programs.nixvim = {
     plugins.treesitter = {
@@ -12,27 +81,7 @@
         };
         indent.enable = true;
       };
-      grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-        gitignore
-        json
-        markdown
-        yaml
-        nix
-        bash
-        vim
-        dockerfile
-        jsdoc
-        typescript
-        javascript
-        python
-        elixir
-        erlang
-        heex
-        graphql
-        html
-        css
-        beancount
-      ];
+      grammarPackages = map (n: pkgs.vimPlugins.nvim-treesitter.builtGrammars.${n}) parsers;
     };
   };
 }

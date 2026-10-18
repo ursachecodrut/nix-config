@@ -8,6 +8,7 @@
   imports = [
     "${hmModules}/common"
     "${hmModules}/programs/brave"
+    "${hmModules}/programs/kitty"
     "${hmModules}/programs/claude-code"
   ];
 

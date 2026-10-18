@@ -1,12 +1,21 @@
-{...}:
+{ pkgs, ... }:
 
 {
   programs.nixvim = {
+    extraPlugins = [ pkgs.vimPlugins.auto-dark-mode-nvim ];
+    extraConfigLua = ''
+      require("auto-dark-mode").setup()
+    '';
+
     colorschemes.catppuccin = {
       enable = true;
       settings = {
-        flavor = "mocha"; 
-        
+        flavour = "auto"; 
+        background = {
+          light = "latte";
+          dark = "mocha";
+        };
+
         integrations = {
           blink_cmp = true;
           fzf = true;

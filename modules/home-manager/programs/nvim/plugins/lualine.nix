@@ -5,7 +5,7 @@
 
       settings = {
         options = {
-          theme = "auto";
+          theme = "catppuccin-nvim";
 
           globalstatus = true;
           extensions = [

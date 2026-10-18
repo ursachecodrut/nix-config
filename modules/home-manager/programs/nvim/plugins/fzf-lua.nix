@@ -1,3 +1,40 @@
+let
+  exclude = [
+    # version control
+    ".git"
+    # elixir
+    "_build"
+    "deps"
+    ".elixir_ls"
+    # frontend / js
+    "node_modules"
+    "dist"
+    "build"
+    ".next"
+    ".nuxt"
+    "coverage"
+    # misc
+    ".cache"
+  ];
+  fdExcludes = builtins.concatStringsSep " " (map (d: "--exclude ${d}") exclude);
+  rgExcludes = builtins.concatStringsSep " " (map (d: "--glob '!${d}'") exclude);
+
+  copyPath = full: {
+    __raw = ''
+      function(selected)
+        local path = require("fzf-lua").path.entry_to_file(selected[1]).path
+        ${if full then ''path = vim.fn.fnamemodify(path, ":p")'' else ""}
+        vim.fn.setreg("+", path)
+        vim.notify("Copied: " .. path)
+      end
+    '';
+  };
+
+  key = action: desc: {
+    inherit action;
+    options.desc = desc;
+  };
+in
 {
   programs.nixvim = {
     plugins.fzf-lua = {
@@ -8,96 +45,48 @@
           height = 0.85;
           width = 0.80;
           preview = {
-            layout = "vertical"; 
+            layout = "vertical";
             vertical = "down:50%";
           };
         };
         fzf_opts = {
-          "--ansi" = "";
+          "--ansi" = true;
           "--info" = "inline";
           "--height" = "100%";
           "--layout" = "reverse";
         };
-        actions = {
-          diagnostics = {
-            "ctrl-y" = ''
-              function(selected)
-                -- selected[1] usually contains the text line in fzf-lua
-                local msg = selected[1]
-                vim.fn.setreg('+', msg)
-                print("Copied to clipboard!")
-              end
-            '';
+        files = {
+          fd_opts = "--color=never --type f --hidden --follow ${fdExcludes}";
+          actions = {
+            "ctrl-y" = copyPath false;
+            "ctrl-e" = copyPath true;
           };
+        };
+        grep = {
+          rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 ${rgExcludes} -e";
         };
       };
 
       keymaps = {
-        "<leader>ff" = {
-          action = "files";
-          options = {
-            desc = "Fzf Files";
-          };
-        };
-        "<leader>fg" = {
-          action = "live_grep";
-          options = {
-            desc = "Fzf Live Grep";
-          };
-        };
-        "<leader>fw" = {
-          action = "grep_cword";
-          options = {
-            desc = "Fzf Grep Word Under Cursor";
-          };
-        };
-        "<leader>fW" = {
-          action = "grep_cWORD";
-          options = {
-            desc = "Fzf Grep Word Under Cursor";
-          };
-        };
-        "<leader>fb" = {
-          action = "buffers";
-          options = {
-            desc = "Fzf Buffers";
-          };
-        };
-        "<leader>fh" = {
-          action = "help_tags";
-          options = {
-            desc = "Fzf Help Tags";
-          };
-        };
-        "<leader>fd" = {
-          action = "diagnostics_document";
-          options = {
-            desc = "Fzf Diagnostics";
-          };
-        };
-        "<leader>fr" = {
-          action = "lsp_references";
-          options = {
-            desc = "Fzf LSP References";
-          };
-        };
-        "<leader>gs" = {
-          action = "git_status";
-          options.desc = "Fzf Git Status (Stage files with Tab)";
-        };
-        "<leader>gc" = {
-          action = "git_commits";
-          options.desc = "Fzf Git Commits (Checkout on Enter)";
-        };
-        "<leader>gb" = {
-          action = "git_branches";
-          options.desc = "Fzf Git Branches";
-        };
-        "<leader>gt" = {
-          action = "git_stash";
-          options.desc = "Fzf Git Stash";
-        };
-
+        "<leader>ff" = key "files" "Fzf Files";
+        "<leader>fg" = key "live_grep" "Fzf Live Grep";
+        "<leader>fw" = key "grep_cword" "Fzf Grep Word Under Cursor";
+        "<leader>fW" = key "grep_cWORD" "Fzf Grep WORD Under Cursor";
+        "<leader>fb" = key "buffers" "Fzf Buffers";
+        "<leader>fh" = key "help_tags" "Fzf Help Tags";
+        "<leader>fd" = key "diagnostics_document" "Fzf Diagnostics";
+        "<leader>fr" = key "lsp_references" "Fzf LSP References";
+        "<leader>fs" = key "lsp_document_symbols" "Fzf Document Symbols";
+        "<leader>fS" = key "lsp_workspace_symbols" "Fzf Workspace Symbols";
+        "<leader>fm" = key "marks" "Fzf Marks";
+        "<leader>fG" = key "grep_last" "Fzf Grep Last";
+        "<leader>f/" = key "search_history" "Fzf Search History";
+        "<leader>f:" = key "command_history" "Fzf Command History";
+        "<leader>f\"" = key "registers" "Fzf Registers";
+        "<leader>gs" = key "git_status" "Fzf Git Status (Stage files with Tab)";
+        "<leader>gc" = key "git_commits" "Fzf Git Commits (Checkout on Enter)";
+        "<leader>gb" = key "git_branches" "Fzf Git Branches";
+        "<leader>gt" = key "git_stash" "Fzf Git Stash";
       };
     };
   };

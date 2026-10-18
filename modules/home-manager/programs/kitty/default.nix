@@ -20,7 +20,6 @@
 
       # Window
       window_padding_width = 8;
-      hide_window_decorations = "titlebar-only";
 
       # Performance
       repaint_delay = 10;

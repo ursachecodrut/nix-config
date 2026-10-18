@@ -15,6 +15,10 @@
               auto_show = true;
               auto_show_delay_ms = 500;
             };
+            menu.draw.columns = [
+              [ "label" "label_description" ]
+              [ "kind_icon" "kind" ]
+            ];
             list = {
               selection = {
                 auto_insert = true;
@@ -79,6 +83,13 @@
         };
       };
 
+      copilot-lua = {
+        enable = true;
+        settings = {
+          suggestion.enabled = false;
+          panel.enabled = false;
+        };
+      };
       blink-copilot.enable = true;
     };
   };

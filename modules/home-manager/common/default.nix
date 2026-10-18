@@ -9,6 +9,7 @@
     ../programs/zsh
     ../programs/starship
     ../programs/tmux
+    ../programs/herdr
     ../programs/nvim
     ../programs/btop
     ../programs/direnv

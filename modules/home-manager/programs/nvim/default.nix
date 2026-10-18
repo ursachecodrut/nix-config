@@ -12,6 +12,7 @@
     enable = true;
 
     nixpkgs = {
+      source = inputs.nixpkgs;
       config = {
         allowUnfree = true;
       };

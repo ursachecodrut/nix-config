@@ -43,6 +43,43 @@ Update specific input:
 nix flake update nixpkgs
 ```
 
+### List Generations
+
+List NixOS generations:
+```bash
+sudo nixos-rebuild list-generations
+```
+
+List Home Manager generations:
+```bash
+home-manager generations
+```
+
+Rollback to previous generation:
+```bash
+# NixOS
+sudo nixos-rebuild switch --rollback
+
+# Home Manager
+home-manager generations  # find the generation number
+/nix/store/<generation-path>/activate
+```
+
+Delete old generations:
+```bash
+# NixOS - delete specific generations (e.g., 1 2 3 4)
+sudo nix-env --delete-generations 1 2 3 4 --profile /nix/var/nix/profiles/system
+
+# NixOS - delete all old generations (keeps current)
+sudo nix-env --delete-generations old --profile /nix/var/nix/profiles/system
+
+# Home Manager - delete generations older than 2 days
+home-manager expire-generations "-2 days"
+
+# Run garbage collection to free disk space
+sudo nix-collect-garbage -d
+```
+
 ### Rebuild
 
 **NixOS:**
