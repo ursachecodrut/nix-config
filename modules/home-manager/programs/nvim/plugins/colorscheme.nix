@@ -10,7 +10,7 @@
     colorschemes.catppuccin = {
       enable = true;
       settings = {
-        flavour = "auto"; 
+        flavour = "auto";
         background = {
           light = "latte";
           dark = "mocha";

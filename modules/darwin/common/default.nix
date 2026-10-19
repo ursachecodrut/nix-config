@@ -1,9 +1,9 @@
 {
-  outputs,
   pkgs,
   userConfig,
   ...
 }:
+
 {
   # Nixpkgs configuration
   nixpkgs = {
@@ -36,31 +36,31 @@
       };
       CustomUserPreferences = {
         "com.apple.symbolichotkeys" = {
-            AppleSymbolicHotKeys = {
+          AppleSymbolicHotKeys = {
             "60" = {
-                # Disable '^ + Space' for selecting the previous input source
-                enabled = false;
+              # Disable '^ + Space' for selecting the previous input source
+              enabled = false;
             };
             "61" = {
-                # Disable '^ + Option + Space' for selecting the next input source
-                enabled = false;
+              # Disable '^ + Option + Space' for selecting the next input source
+              enabled = false;
             };
             # Disable 'Cmd + Space' for Spotlight Search
             "64" = {
-                enabled = false;
+              enabled = false;
             };
             # Disable 'Cmd + Alt + Space' for Finder search window
             "65" = {
-                # Set to false to disable
-                enabled = true;
+              # Set to false to disable
+              enabled = true;
             };
-            };
+          };
         };
       };
       NSGlobalDomain = {
         "com.apple.sound.beep.volume" = 0.000;
         AppleInterfaceStyle = "Dark";
-        ApplePressAndHoldEnabled = false;             
+        ApplePressAndHoldEnabled = false;
         AppleShowAllExtensions = true;
         InitialKeyRepeat = 12;
         KeyRepeat = 1;
@@ -70,18 +70,18 @@
         NSAutomaticWindowAnimationsEnabled = false;
       };
       LaunchServices = {
-        LSQuarantine = false;                          # Disable "Are you sure you want to open this application?" dialog
+        LSQuarantine = false; # Disable "Are you sure you want to open this application?" dialog
       };
       trackpad = {
         TrackpadThreeFingerDrag = true;
       };
       finder = {
         AppleShowAllFiles = true;
-        FXDefaultSearchScope = "SCcf";                 # Search the current folder by default
-        FXEnableExtensionChangeWarning = false;        # Disable extension change warning
-        FXPreferredViewStyle = "Nlsv";                 # List view
-        QuitMenuItem = true ;                          # Enable quitting Finder
-        ShowPathbar = true;                            # Show path bar
+        FXDefaultSearchScope = "SCcf"; # Search the current folder by default
+        FXEnableExtensionChangeWarning = false; # Disable extension change warning
+        FXPreferredViewStyle = "Nlsv"; # List view
+        QuitMenuItem = true; # Enable quitting Finder
+        ShowPathbar = true; # Show path bar
         ShowStatusBar = true;
         _FXShowPosixPathInTitle = true;
         _FXSortFoldersFirst = true;
@@ -91,17 +91,17 @@
         show-recents = false;
         showhidden = true;
         persistent-apps = [
-            "/Users/${userConfig.name}/Applications/Home Manager Apps/kitty.app"
-            "/Applications/Firefox.app"
-            "/Applications/Slack.app"
-            "/Applications/Microsoft Outlook.app"
-            "/Applications/Discord.app"
-            "/Applications/zoom.us.app"
-            "/Applications/Visual Studio Code.app"
-            "/Applications/DataGrip.app/"
-            "/Applications/Bruno.app/"
-            "/Applications/Bitwarden.app"
-            "/System/Applications/System Settings.app"
+          "/Users/${userConfig.name}/Applications/Home Manager Apps/kitty.app"
+          "/Applications/Firefox.app"
+          "/Applications/Slack.app"
+          "/Applications/Microsoft Outlook.app"
+          "/Applications/Discord.app"
+          "/Applications/zoom.us.app"
+          "/Applications/Visual Studio Code.app"
+          "/Applications/DataGrip.app/"
+          "/Applications/Bruno.app/"
+          "/Applications/Bitwarden.app"
+          "/System/Applications/System Settings.app"
         ];
         tilesize = 50;
       };

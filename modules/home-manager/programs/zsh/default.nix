@@ -29,7 +29,7 @@
       ll = "eza --long --icons --time-style='long-iso'";
       la = "ll -a";
       tree = "eza --tree";
-      
+
       # Neovim
       v = "nvim";
       vim = "nvim";

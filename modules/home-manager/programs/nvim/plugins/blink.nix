@@ -16,8 +16,14 @@
               auto_show_delay_ms = 500;
             };
             menu.draw.columns = [
-              [ "label" "label_description" ]
-              [ "kind_icon" "kind" ]
+              [
+                "label"
+                "label_description"
+              ]
+              [
+                "kind_icon"
+                "kind"
+              ]
             ];
             list = {
               selection = {

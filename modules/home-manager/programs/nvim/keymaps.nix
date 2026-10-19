@@ -1,4 +1,3 @@
-{ ... }:
 {
   programs.nixvim = {
     globals = {
@@ -122,11 +121,36 @@
         options.desc = "Buffer format";
       }
       # Quickfix
-      { mode = "n"; key = "<leader>cq"; action.__raw = "function() vim.fn.setqflist({}) print(\"Quickfix list cleared!\") end"; options.desc = "Clear quickfix list"; }
-      { mode = "n"; key = "<leader>qo"; action = "<cmd>copen<CR>"; options.silent = true; }
-      { mode = "n"; key = "<leader>qc"; action = "<cmd>cclose<CR>"; options.silent = true; }
-      { mode = "n"; key = "<leader>qn"; action = "<cmd>cnext<CR>"; options.silent = true; }
-      { mode = "n"; key = "<leader>qp"; action = "<cmd>cprev<CR>"; options.silent = true; }
+      {
+        mode = "n";
+        key = "<leader>cq";
+        action.__raw = "function() vim.fn.setqflist({}) print(\"Quickfix list cleared!\") end";
+        options.desc = "Clear quickfix list";
+      }
+      {
+        mode = "n";
+        key = "<leader>qo";
+        action = "<cmd>copen<CR>";
+        options.silent = true;
+      }
+      {
+        mode = "n";
+        key = "<leader>qc";
+        action = "<cmd>cclose<CR>";
+        options.silent = true;
+      }
+      {
+        mode = "n";
+        key = "<leader>qn";
+        action = "<cmd>cnext<CR>";
+        options.silent = true;
+      }
+      {
+        mode = "n";
+        key = "<leader>qp";
+        action = "<cmd>cprev<CR>";
+        options.silent = true;
+      }
       # HEEx/Phoenix keymaps - wrap selection
       {
         mode = "v";

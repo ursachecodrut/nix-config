@@ -32,8 +32,9 @@ in
           enable = true;
           settings = {
             options = {
-              ${if isDarwin then "darwin" else "nixos"}.expr =
-                "${flake}.${if isDarwin then "darwinConfigurations" else "nixosConfigurations"}.\"${hostname}\".options";
+              ${if isDarwin then "darwin" else "nixos"}.expr = "${flake}.${
+                if isDarwin then "darwinConfigurations" else "nixosConfigurations"
+              }.\"${hostname}\".options";
               home_manager.expr = "${flake}.homeConfigurations.\"${userConfig.name}@${hostname}\".options";
             };
             nixpkgs = {

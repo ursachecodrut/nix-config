@@ -24,7 +24,7 @@
       set -g status-left-length 200
       set -g status-right ""
       set -g status-style 'bg=default'
-      
+
       set -g window-status-current-format '👉 #[fg=magenta]#W'
       set -g window-status-format ' #[fg=gray]#W'
 
@@ -59,7 +59,7 @@
       bind v split-window -h -c "#{pane_current_path}"
       bind -r m resize-pane -Z
       bind-key x kill-pane
-      
+
       bind h resize-pane -L 5
       bind j resize-pane -D 5
       bind k resize-pane -U 5
@@ -69,7 +69,7 @@
       bind c new-window -c '#{pane_current_path}'
       bind -N "⌘+g lazygit " g new-window -c "#{pane_current_path}" -n "🌳" "lazygit 2> /dev/null"
       bind -N "⌘+y yazi" y new-window -c "#{pane_current_path}" -n "📂" "yazi"
-      
+
       bind-key & kill-window
       bind C-b last-window
       bind C-n next-window

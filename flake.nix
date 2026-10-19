@@ -32,6 +32,11 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -105,8 +110,36 @@
             ./home/${username}/${hostname}
           ];
         };
+
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
+
+      treefmtEval = forAllSystems (
+        system:
+        inputs.treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} {
+          projectRootFile = "flake.nix";
+          programs = {
+            nixfmt.enable = true;
+            statix.enable = true;
+            deadnix.enable = true;
+          };
+          settings.global.excludes = [
+            "*.png"
+            "*.jpg"
+            "flake.lock"
+          ];
+        }
+      );
     in
     {
+      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
+
+      checks = forAllSystems (system: {
+        formatting = treefmtEval.${system}.config.build.check self;
+      });
+
       nixosConfigurations = {
         asus-tuf = mkNixosConfiguration "asus-tuf" "kreker71";
         b450-desktop = mkNixosConfiguration "b450-desktop" "kreker71";
@@ -119,7 +152,9 @@
       homeConfigurations = {
         "kreker71@asus-tuf" = mkHomeConfiguration "x86_64-linux" "kreker71" "asus-tuf";
         "kreker71@b450-desktop" = mkHomeConfiguration "x86_64-linux" "kreker71" "b450-desktop";
-        "codrut.ursache@Codrut-Stefans-MacBook-Pro" = mkHomeConfiguration "aarch64-darwin" "codrut.ursache" "Codrut-Stefans-MacBook-Pro";
+        "codrut.ursache@Codrut-Stefans-MacBook-Pro" =
+          mkHomeConfiguration "aarch64-darwin" "codrut.ursache"
+            "Codrut-Stefans-MacBook-Pro";
       };
     };
 }

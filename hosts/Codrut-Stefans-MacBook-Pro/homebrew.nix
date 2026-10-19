@@ -4,8 +4,8 @@
 
     onActivation = {
       autoUpdate = true; # Fetch the newest stable branch of Homebrew's git repo
-      upgrade = true;    # Upgrade outdated casks, formulae, and App Store apps
-      cleanup = "zap";   # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
+      upgrade = true; # Upgrade outdated casks, formulae, and App Store apps
+      cleanup = "zap"; # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
     };
 
     taps = [
@@ -28,7 +28,7 @@
     casks = [
       "tailscale-app"
       "iterm2"
-      "raycast" 
+      "raycast"
       "firefox"
       "slack"
       "zoom"

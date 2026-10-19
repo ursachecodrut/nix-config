@@ -6,23 +6,23 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  environment.gnome.excludePackages = (with pkgs; [
+  environment.gnome.excludePackages = with pkgs; [
     gnome-photos
     gnome-tour
     gnome-music
-    epiphany    
-    geary       
+    epiphany
+    geary
     gnome-characters
-    tali        
-    iagno       
-    hitori      
-    atomix      
+    tali
+    iagno
+    hitori
+    atomix
     gnome-maps
     gnome-contacts
     gnome-weather
     gnome-logs
     gnome-system-monitor
-  ]);
+  ];
 
   services.xserver.excludePackages = [ pkgs.xterm ];
 }

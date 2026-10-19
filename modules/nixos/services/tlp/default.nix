@@ -1,4 +1,3 @@
-{ ... }:
 {
   # Set TLP power profile
   services = {

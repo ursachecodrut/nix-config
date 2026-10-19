@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 {
   services.displayManager.gdm.enable = true;
 
@@ -29,29 +30,29 @@
   };
 
   environment.systemPackages = with pkgs; [
-    file-roller              # archive manager
-    gnome-calculator         # calculator
-    gnome-text-editor        # text editor
-    loupe                    # image viewer
-    seahorse                 # GNOME keyring manager
-    nautilus                 # file manager
-    totem                    # video player
+    file-roller # archive manager
+    gnome-calculator # calculator
+    gnome-text-editor # text editor
+    loupe # image viewer
+    seahorse # GNOME keyring manager
+    nautilus # file manager
+    totem # video player
 
-    libnotify                # send desktop notifications
-    brightnessctl            # adjust screen brightness
-    networkmanagerapplet     # network manager applet
-    pavucontrol              # volume control
+    libnotify # send desktop notifications
+    brightnessctl # adjust screen brightness
+    networkmanagerapplet # network manager applet
+    pavucontrol # volume control
 
-    grim                     # screenshot utility
-    slurp                    # selection utility
+    grim # screenshot utility
+    slurp # selection utility
 
-    hypridle                 # idle management for Hyprland
-    hyprpaper                # wallpaper manager for Hyprland
-    hyprpicker               # color picker for Hyprland
+    hypridle # idle management for Hyprland
+    hyprpaper # wallpaper manager for Hyprland
+    hyprpicker # color picker for Hyprland
 
-    wf-recorder              # screen recording utility
-    wl-clipboard             # clipboard utilities for Wayland
-    wlr-randr                # display configuration utility for Wayland
+    wf-recorder # screen recording utility
+    wl-clipboard # clipboard utilities for Wayland
+    wlr-randr # display configuration utility for Wayland
   ];
 
   # speed up builds by using the Walker binary cache

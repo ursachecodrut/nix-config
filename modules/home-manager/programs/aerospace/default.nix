@@ -1,6 +1,6 @@
 {
   xdg.configFile = {
-    "aerospace/aerospace.toml" = { 
+    "aerospace/aerospace.toml" = {
       source = ./aerospace.toml;
     };
   };
