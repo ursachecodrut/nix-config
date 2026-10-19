@@ -2,6 +2,7 @@
   hostname,
   nixosModules,
   lib,
+  pkgs,
   ...
 }:
 
@@ -30,6 +31,27 @@
   };
 
   programs.corectrl.enable = true;
+
+  environment.systemPackages = [ pkgs.cifs-utils ];
+
+  # TrueNAS SMB share. Credentials live outside the Nix store; create with:
+  #   sudo sh -c 'printf "username=USER\npassword=PASS\n" > /etc/smb-secrets-nas'
+  #   sudo chmod 600 /etc/smb-secrets-nas
+  fileSystems."/mnt/nas/media" = {
+    device = "//192.168.50.152/media";
+    fsType = "cifs";
+    options = [
+      "credentials=/etc/smb-secrets-nas"
+      "uid=1000"
+      "gid=100"
+      "x-systemd.automount"
+      "noauto"
+      "x-systemd.idle-timeout=60"
+      "x-systemd.mount-timeout=10"
+      "nofail"
+      "_netdev"
+    ];
+  };
 
   system.stateVersion = "26.05";
 }

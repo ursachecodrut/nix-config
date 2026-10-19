@@ -6,14 +6,6 @@
 }:
 
 {
-  home.packages = [
-    (pkgs.catppuccin-kde.override {
-      flavour = [ "macchiato" ];
-      accents = [ "lavender" ];
-      winDecStyles = [ "modern" ];
-    })
-  ];
-
   # KDE caches the app list (sycoca) and does not notice new .desktop files
   # that appear via the nix profile symlink, so rebuild it after each switch.
   home.activation.rebuildKdeAppCache = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
@@ -24,19 +16,12 @@
     enable = true;
 
     workspace = {
-      lookAndFeel = "Catppuccin-Macchiato-Lavender";
-      colorScheme = "CatppuccinMacchiatoLavender";
       iconTheme = "breeze-dark";
       cursor.theme = "breeze_cursors";
       wallpaper = config.wallpaper;
     };
 
     kscreenlocker.appearance.wallpaper = config.wallpaper;
-
-    configFile."kwinrc"."org.kde.kdecoration2" = {
-      library = "org.kde.kwin.aurorae";
-      theme = "__aurorae__svg__CatppuccinMacchiato-Modern";
-    };
 
     kwin.virtualDesktops = {
       number = 4;

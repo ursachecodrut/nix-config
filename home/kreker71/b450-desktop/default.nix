@@ -22,6 +22,8 @@
   home.packages = with pkgs; [
     kdePackages.kate
     discord
+    wl-clipboard
+    xclip
 
     # gaming
     gamemode # Steam launch option: gamemoderun %command%
