@@ -5,7 +5,15 @@
   ...
 }:
 
+let
+  wallpaperPath = "${config.home.homeDirectory}/.local/share/wallpapers/default-wallpaper.png";
+in
 {
+  # Plasma 6.8 rejects wallpapers living directly in /nix/store ("unknown
+  # wallpaper provider type") and falls back to the default, so expose the
+  # image under a regular path in the home directory and point KDE at that.
+  home.file.".local/share/wallpapers/default-wallpaper.png".source = config.wallpaper;
+
   # KDE caches the app list (sycoca) and does not notice new .desktop files
   # that appear via the nix profile symlink, so rebuild it after each switch.
   home.activation.rebuildKdeAppCache = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
@@ -18,10 +26,10 @@
     workspace = {
       iconTheme = "breeze-dark";
       cursor.theme = "breeze_cursors";
-      wallpaper = config.wallpaper;
+      wallpaper = wallpaperPath;
     };
 
-    kscreenlocker.appearance.wallpaper = config.wallpaper;
+    kscreenlocker.appearance.wallpaper = wallpaperPath;
 
     kwin.virtualDesktops = {
       number = 4;
