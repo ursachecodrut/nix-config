@@ -15,6 +15,7 @@
     ../programs/btop
     ../programs/direnv
     ../programs/yazi
+    ../programs/nix-search-tv
     ../scripts
   ];
 
