@@ -137,12 +137,6 @@ in
         event_date_format = "%A %e %B";
         event_time_format = "%H:%M";
 
-        account.personal_google = {
-          name = "Personal";
-          type = "google"; # OAuth; refresh token lives in Secret Service, not in the repo
-          color = "primary";
-        };
-
         reminders = {
           enabled = true;
           use_event_reminders = true;
