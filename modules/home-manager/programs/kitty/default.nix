@@ -38,8 +38,8 @@ in
   # Kitty switches between these automatically following the system
   # light/dark preference (freedesktop color-scheme portal).
   xdg.configFile = {
-    "kitty/dark-theme.auto.conf".text = theme "Catppuccin-Macchiato";
+    "kitty/dark-theme.auto.conf".text = theme "Catppuccin-Mocha";
     "kitty/light-theme.auto.conf".text = theme "Catppuccin-Latte";
-    "kitty/no-preference-theme.auto.conf".text = theme "Catppuccin-Macchiato";
+    "kitty/no-preference-theme.auto.conf".text = theme "Catppuccin-Mocha";
   };
 }
