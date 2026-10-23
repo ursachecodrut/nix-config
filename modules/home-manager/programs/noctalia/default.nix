@@ -39,10 +39,13 @@ in
       ".config/noctalia/templates/theme-mode.txt".text = "{{ mode }}\n";
     };
 
+  home.packages = [ pkgs.kdePackages.qt6ct ];
+
   xdg.configFile."qt6ct/qt6ct.conf".text = ''
     [Appearance]
     color_scheme_path=${config.home.homeDirectory}/.local/share/color-schemes/noctalia.colors
     custom_palette=true
+    icon_theme=breeze-dark
     standard_dialogs=default
     style=Breeze
   '';
@@ -144,6 +147,19 @@ in
         enabled = true;
         unit = "celsius";
         refresh_minutes = 30;
+      };
+
+      idle.behavior = {
+        lock = {
+          enabled = true;
+          timeout = 600;
+          action = "lock";
+        };
+        screen-off = {
+          enabled = true;
+          timeout = 660;
+          action = "screen_off";
+        };
       };
 
       location = {

@@ -14,6 +14,7 @@
     "${nixosModules}/desktop/plasma"
     "${nixosModules}/desktop/niri"
     "${nixosModules}/programs/brave"
+    "${nixosModules}/programs/steam"
   ];
 
   networking.hostName = hostname;
@@ -39,6 +40,8 @@
   users.users.${userConfig.name}.extraGroups = [ "gamemode" ];
 
   programs.corectrl.enable = true;
+
+  hardware.amdgpu.overdrive.enable = true;
 
   environment.systemPackages = [ pkgs.cifs-utils ];
 

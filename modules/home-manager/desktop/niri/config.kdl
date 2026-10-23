@@ -85,12 +85,6 @@ window-rule {
     geometry-corner-radius 8
     clip-to-geometry true
 }
-window-rule {
-    match app-id="org.pulseaudio.pavucontrol"
-    match app-id="nm-connection-editor"
-    match app-id="org.gnome.Calculator"
-    open-floating true
-}
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }

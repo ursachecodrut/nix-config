@@ -14,6 +14,7 @@
     ../programs/nvim
     ../programs/btop
     ../programs/direnv
+    ../programs/yazi
     ../scripts
   ];
 

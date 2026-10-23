@@ -15,8 +15,8 @@
     "${hmModules}/programs/kitty"
     "${hmModules}/programs/claude-code"
     "${hmModules}/programs/signal"
-    "${hmModules}/programs/steam"
     "${hmModules}/programs/mangohud"
+    "${hmModules}/programs/lutris"
   ];
 
   programs.home-manager.enable = true;
@@ -29,7 +29,6 @@
     vlc
 
     # gaming
-    lutris
     heroic
     protonup-qt
     vulkan-tools # vulkaninfo --summary

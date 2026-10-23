@@ -83,6 +83,8 @@
   # Enable devmon for device management
   services.devmon.enable = true;
 
+  services.fwupd.enable = true;
+
   # Enable PipeWire for sound
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
