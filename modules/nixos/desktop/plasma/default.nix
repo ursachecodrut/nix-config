@@ -6,7 +6,7 @@ let
     mkdir -p $out/share/sddm/themes
     cp -r ${pkgs.kdePackages.plasma-desktop}/share/sddm/themes/breeze $theme
     chmod -R u+w $theme
-    sed -i 's|^background=.*|background=${../../../home-manager/misc/wallpaper/cat-leaves.png}|' $theme/theme.conf
+    sed -i 's|^background=.*|background=${../../../home-manager/misc/wallpaper/yosemite.png}|' $theme/theme.conf
   '';
 in
 {

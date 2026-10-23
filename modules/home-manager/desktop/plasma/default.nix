@@ -25,7 +25,10 @@ in
 
     workspace = {
       iconTheme = "breeze-dark";
-      cursor.theme = "breeze_cursors";
+      cursor = {
+        theme = "catppuccin-mocha-lavender-cursors";
+        size = 24;
+      };
       wallpaper = wallpaperPath;
     };
 

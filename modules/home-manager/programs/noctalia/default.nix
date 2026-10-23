@@ -39,16 +39,13 @@ in
       ".config/noctalia/templates/theme-mode.txt".text = "{{ mode }}\n";
     };
 
-  home.packages = [ pkgs.kdePackages.qt6ct ];
+  # Set for the whole systemd user session (not just niri's environment block)
+  # so apps started from the noctalia launcher get it too. Plasma's platform
+  # theme reads kdeglobals, which noctalia's kcolorscheme template writes.
+  systemd.user.sessionVariables.QT_QPA_PLATFORMTHEME = "kde";
 
-  xdg.configFile."qt6ct/qt6ct.conf".text = ''
-    [Appearance]
-    color_scheme_path=${config.home.homeDirectory}/.local/share/color-schemes/noctalia.colors
-    custom_palette=true
-    icon_theme=breeze-dark
-    standard_dialogs=default
-    style=Breeze
-  '';
+  catppuccin.btop.enable = lib.mkForce false;
+  programs.btop.settings.color_theme = "noctalia";
 
   programs.noctalia = {
     enable = true;
@@ -116,6 +113,8 @@ in
             "kcolorscheme" # Dolphin and other KDE/Qt apps (merged into kdeglobals)
             "gtk3"
             "gtk4"
+            "niri" # ~/.config/niri/noctalia.kdl, included by niri's config.kdl
+            "btop" # ~/.config/btop/themes/noctalia.theme
           ];
 
           user.theme_mode_wallpaper = {
@@ -135,9 +134,8 @@ in
 
         account.personal_google = {
           name = "Personal";
-          type = "ics";
+          type = "google"; # OAuth; refresh token lives in Secret Service, not in the repo
           color = "primary";
-          server_url = "https://calendar.google.com/calendar/ical/ursache.codrut71%40gmail.com/public/basic.ics";
         };
 
         reminders = {
@@ -157,6 +155,12 @@ in
         enabled = true;
         unit = "celsius";
         refresh_minutes = 30;
+      };
+
+      nightlight = {
+        enabled = true;
+        temperature_day = 6500;
+        temperature_night = 4000;
       };
 
       idle.behavior = {

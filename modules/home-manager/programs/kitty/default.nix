@@ -7,7 +7,7 @@ in
     enable = true;
 
     font = {
-      name = "JetBrains Mono";
+      name = "JetBrainsMono Nerd Font";
       size = 10;
     };
 
@@ -32,6 +32,7 @@ in
       # Misc
       enable_audio_bell = "no";
       confirm_os_window_close = 0;
+      remember_window_size = "no";
     };
   };
 
