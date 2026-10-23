@@ -21,6 +21,8 @@
 
   programs.home-manager.enable = true;
 
+  signal.passwordStore = "kwallet6";
+
   home.packages = with pkgs; [
     kdePackages.kate
     discord

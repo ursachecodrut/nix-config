@@ -44,6 +44,11 @@ in
   # theme reads kdeglobals, which noctalia's kcolorscheme template writes.
   systemd.user.sessionVariables.QT_QPA_PLATFORMTHEME = "kde";
 
+  home.packages = with pkgs; [
+    bitwarden-cli
+    wtype
+  ];
+
   catppuccin.btop.enable = lib.mkForce false;
   programs.btop.settings.color_theme = "noctalia";
 
