@@ -68,6 +68,8 @@ in
           copy_to_clipboard = true;
           freeze_screen = true;
         };
+
+        launcher.show_app_actions = true;
       };
 
       plugins = {
@@ -75,6 +77,7 @@ in
           "noctalia/screen_recorder"
           "noctalia/bitwarden"
           "noctalia/timer"
+          "noctalia/world_clock"
         ];
         auto_update = "none";
         source = [
@@ -130,6 +133,13 @@ in
         event_date_format = "%A %e %B";
         event_time_format = "%H:%M";
 
+        account.personal_google = {
+          name = "Personal";
+          type = "ics";
+          color = "primary";
+          server_url = "https://calendar.google.com/calendar/ical/ursache.codrut71%40gmail.com/public/basic.ics";
+        };
+
         reminders = {
           enabled = true;
           use_event_reminders = true;
@@ -175,6 +185,7 @@ in
       bar.main = {
         position = "top";
         thickness = 32;
+        font_family = "JetBrainsMono NF";
         background_opacity = 0.9;
         compositor_blur = true;
         radius = 8; # matches niri's window corner radius
