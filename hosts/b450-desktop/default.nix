@@ -11,6 +11,7 @@
     ./hardware.nix
     "${nixosModules}/common"
     "${nixosModules}/desktop/plasma"
+    "${nixosModules}/desktop/niri"
     "${nixosModules}/programs/brave"
   ];
 

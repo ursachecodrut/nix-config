@@ -1,0 +1,158 @@
+{ inputs, ... }:
+
+{
+  imports = [
+    inputs.noctalia.homeModules.default
+    ./noctalia.nix
+  ];
+
+  # Spawned from niri itself (not systemd) so none of this leaks into the
+  # Plasma session.
+  xdg.configFile."niri/config.kdl".text = ''
+    input {
+        keyboard {
+            repeat-delay 250
+            repeat-rate 40
+        }
+        touchpad {
+            tap
+            natural-scroll
+        }
+        mouse {
+            accel-profile "flat"
+        }
+        focus-follows-mouse max-scroll-amount="0%"
+    }
+
+    // Run `niri msg outputs` and add `output "<name>" { mode "..."; position x=0 y=0 }`
+    // blocks here if the defaults are not right.
+
+    layout {
+        gaps 6
+        center-focused-column "never"
+        default-column-width { proportion 0.5; }
+        preset-column-widths {
+            proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+        }
+        focus-ring {
+            off
+        }
+        border {
+            width 1
+            active-color "#b7bdf8"
+            inactive-color "#494d64"
+        }
+    }
+
+    prefer-no-csd
+    hotkey-overlay { skip-at-startup; }
+    screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
+
+    animations { off; }
+
+    environment {
+        NIXOS_OZONE_WL "1"
+        XDG_CURRENT_DESKTOP "niri"
+    }
+
+    // Noctalia provides bar, launcher, notifications, lock screen and wallpaper
+    // (pick the wallpaper in its settings).
+    spawn-at-startup "noctalia"
+
+    window-rule {
+        geometry-corner-radius 8
+        clip-to-geometry true
+    }
+    window-rule {
+        match app-id="org.pulseaudio.pavucontrol"
+        match app-id="nm-connection-editor"
+        match app-id="org.gnome.Calculator"
+        open-floating true
+    }
+
+    binds {
+        Mod+Shift+Slash { show-hotkey-overlay; }
+
+        Mod+T { spawn "kitty"; }
+        Mod+B { spawn "brave"; }
+        Mod+Space { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+        Mod+Escape { spawn "noctalia" "msg" "session" "lock"; }
+        Mod+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+        Mod+N { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+        Mod+Q { close-window; }
+
+        // focus / move (vim keys)
+        Mod+H { focus-column-left; }
+        Mod+L { focus-column-right; }
+        Mod+J { focus-window-down; }
+        Mod+K { focus-window-up; }
+        Mod+Shift+H { move-column-left; }
+        Mod+Shift+L { move-column-right; }
+        Mod+Shift+J { move-window-down; }
+        Mod+Shift+K { move-window-up; }
+        Mod+Home { focus-column-first; }
+        Mod+End { focus-column-last; }
+
+        // monitors
+        Mod+Ctrl+H { focus-monitor-left; }
+        Mod+Ctrl+L { focus-monitor-right; }
+        Mod+Ctrl+Shift+H { move-column-to-monitor-left; }
+        Mod+Ctrl+Shift+L { move-column-to-monitor-right; }
+
+        // workspaces
+        Mod+1 { focus-workspace 1; }
+        Mod+2 { focus-workspace 2; }
+        Mod+3 { focus-workspace 3; }
+        Mod+4 { focus-workspace 4; }
+        Mod+5 { focus-workspace 5; }
+        Mod+6 { focus-workspace 6; }
+        Mod+7 { focus-workspace 7; }
+        Mod+8 { focus-workspace 8; }
+        Mod+9 { focus-workspace 9; }
+        Mod+Shift+1 { move-column-to-workspace 1; }
+        Mod+Shift+2 { move-column-to-workspace 2; }
+        Mod+Shift+3 { move-column-to-workspace 3; }
+        Mod+Shift+4 { move-column-to-workspace 4; }
+        Mod+Shift+5 { move-column-to-workspace 5; }
+        Mod+Shift+6 { move-column-to-workspace 6; }
+        Mod+Shift+7 { move-column-to-workspace 7; }
+        Mod+Shift+8 { move-column-to-workspace 8; }
+        Mod+Shift+9 { move-column-to-workspace 9; }
+        Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+        Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+
+        // layout
+        Mod+Comma { consume-window-into-column; }
+        Mod+Period { expel-window-from-column; }
+        Mod+R { switch-preset-column-width; }
+        Mod+M { maximize-column; }
+        Mod+Shift+F { toggle-window-floating; }
+        Mod+F { fullscreen-window; }
+        Mod+C { center-column; }
+        Mod+Minus { set-column-width "-10%"; }
+        Mod+Equal { set-column-width "+10%"; }
+        Mod+O { toggle-overview; }
+
+        // screenshots
+        Print { screenshot; }
+        Ctrl+Print { screenshot-screen; }
+        Alt+Print { screenshot-window; }
+
+        // media / brightness
+        XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-up"; }
+        XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-down"; }
+        XF86AudioMute allow-when-locked=true { spawn "noctalia" "msg" "volume-mute"; }
+        XF86AudioMicMute allow-when-locked=true { spawn "noctalia" "msg" "mic-mute"; }
+        XF86AudioPlay { spawn "playerctl" "play-pause"; }
+        XF86AudioNext { spawn "playerctl" "next"; }
+        XF86AudioPrev { spawn "playerctl" "previous"; }
+        XF86MonBrightnessUp allow-when-locked=true { spawn "noctalia" "msg" "brightness-up"; }
+        XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down"; }
+
+        Mod+Shift+E { quit; }
+        Mod+Shift+P { power-off-monitors; }
+    }
+  '';
+}

@@ -9,6 +9,7 @@
     "${hmModules}/common"
     "${hmModules}/misc/wallpaper"
     "${hmModules}/desktop/plasma"
+    "${hmModules}/desktop/niri"
     "${hmModules}/programs/brave"
     "${hmModules}/programs/kitty"
     "${hmModules}/programs/claude-code"
