@@ -78,6 +78,7 @@ animations {
 environment {
     NIXOS_OZONE_WL "1"
     XDG_CURRENT_DESKTOP "niri"
+    QT_QPA_PLATFORMTHEME "qt6ct"
 }
 
 window-rule {
@@ -100,6 +101,7 @@ binds {
     Mod+Escape { spawn "noctalia" "msg" "session" "lock"; }
     Mod+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
     Mod+N { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+    Mod+Shift+T { spawn "noctalia" "msg" "theme-mode-toggle"; }
     Mod+Q { close-window; }
 
     // focus / move (vim keys)
