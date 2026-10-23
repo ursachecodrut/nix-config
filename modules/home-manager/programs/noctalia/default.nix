@@ -1,8 +1,26 @@
-{ config, inputs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
 
 {
+  imports = [ inputs.noctalia.homeModules.default ];
+
+  # Runs only inside niri: bound to niri.service rather than
+  # graphical-session.target, which Plasma also activates.
+  systemd.user.services.noctalia = {
+    Unit = {
+      PartOf = lib.mkForce [ "niri.service" ];
+      After = lib.mkForce [ "niri.service" ];
+    };
+    Install.WantedBy = lib.mkForce [ "niri.service" ];
+  };
+
   programs.noctalia = {
     enable = true;
+    systemd.enable = true;
 
     settings = {
       shell = {

@@ -80,10 +80,6 @@ environment {
     XDG_CURRENT_DESKTOP "niri"
 }
 
-// Noctalia provides bar, launcher, notifications, lock screen and wallpaper
-// (pick the wallpaper in its settings).
-spawn-at-startup "noctalia"
-
 window-rule {
     geometry-corner-radius 8
     clip-to-geometry true

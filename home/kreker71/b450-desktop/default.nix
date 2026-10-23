@@ -10,6 +10,7 @@
     "${hmModules}/misc/wallpaper"
     "${hmModules}/desktop/plasma"
     "${hmModules}/desktop/niri"
+    "${hmModules}/programs/noctalia"
     "${hmModules}/programs/brave"
     "${hmModules}/programs/kitty"
     "${hmModules}/programs/claude-code"
@@ -28,7 +29,6 @@
     vlc
 
     # gaming
-    gamemode # Steam launch option: gamemoderun %command%
     lutris
     heroic
     protonup-qt

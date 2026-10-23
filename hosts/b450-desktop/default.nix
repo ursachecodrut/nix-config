@@ -1,6 +1,7 @@
 {
   hostname,
   nixosModules,
+  userConfig,
   lib,
   pkgs,
   ...
@@ -30,6 +31,12 @@
     enable = true;
     capSysNice = true;
   };
+
+  programs.gamemode = {
+    enable = true;
+    settings.general.renice = 10;
+  };
+  users.users.${userConfig.name}.extraGroups = [ "gamemode" ];
 
   programs.corectrl.enable = true;
 
