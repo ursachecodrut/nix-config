@@ -231,6 +231,22 @@
         "type": "github"
       }
     },
+    "noctalia-plugins": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792749101,
+        "narHash": "sha256-pPXpx3HhPcepLVrBGdlOT4bUiIs6SlPe9P7Kb7Rbfdk=",
+        "owner": "noctalia-dev",
+        "repo": "official-plugins",
+        "rev": "e1eac19947d4dbb7adb5a22c1de41ec348c4ca3d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "official-plugins",
+        "type": "github"
+      }
+    },
     "plasma-manager": {
       "inputs": {
         "home-manager": [
@@ -264,6 +280,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
         "noctalia": "noctalia",
+        "noctalia-plugins": "noctalia-plugins",
         "plasma-manager": "plasma-manager",
         "treefmt-nix": "treefmt-nix",
         "walker": "walker"

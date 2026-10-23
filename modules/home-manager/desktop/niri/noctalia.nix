@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, inputs, ... }:
 
 {
   programs.noctalia = {
@@ -11,6 +11,37 @@
         date_format = "%A, %d %B";
         telemetry_enabled = false;
         polkit_agent = true;
+
+        screenshot = {
+          directory = "~/Pictures/Screenshots";
+          save_to_file = true;
+          copy_to_clipboard = true;
+          freeze_screen = true;
+        };
+      };
+
+      plugins = {
+        enabled = [ "noctalia/screen_recorder" ];
+        auto_update = "none";
+        source = [
+          {
+            name = "nix";
+            kind = "path";
+            location = "${inputs.noctalia-plugins}";
+            enabled = true;
+          }
+          {
+            name = "official";
+            kind = "git";
+            location = "https://github.com/noctalia-dev/official-plugins";
+            enabled = false;
+          }
+        ];
+      };
+
+      plugin_settings."noctalia/screen_recorder" = {
+        hide_inactive = true;
+        glyph_recording = "video-filled";
       };
 
       theme = {
@@ -44,7 +75,9 @@
         center = [ "clock" ];
         end = [
           "media"
+          "recorder"
           "tray"
+          "screenshot"
           "cpu"
           "ram"
           "notifications"
@@ -87,6 +120,9 @@
         };
 
         notifications.hide_when_no_unread = false;
+
+        # Only visible while recording (hide_inactive below); click to stop.
+        recorder.type = "noctalia/screen_recorder:recorder";
       };
     };
   };

@@ -25,6 +25,7 @@
     discord
     wl-clipboard
     xclip
+    vlc
 
     # gaming
     gamemode # Steam launch option: gamemoderun %command%
