@@ -17,6 +17,11 @@
     "${hmModules}/programs/signal"
     "${hmModules}/programs/mangohud"
     "${hmModules}/programs/lutris"
+    "${hmModules}/programs/obsidian"
+    "${hmModules}/programs/obs-studio"
+    "${hmModules}/programs/thunderbird"
+    "${hmModules}/services/syncthing"
+    "${hmModules}/services/kdeconnect"
   ];
 
   programs.home-manager.enable = true;

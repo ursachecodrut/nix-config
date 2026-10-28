@@ -15,6 +15,7 @@
     "${nixosModules}/desktop/niri"
     "${nixosModules}/programs/brave"
     "${nixosModules}/programs/steam"
+    "${nixosModules}/programs/kdeconnect"
   ];
 
   networking.hostName = hostname;
